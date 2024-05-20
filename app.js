@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const authRoutes = require('./routes/auth');
+const serviceRoutes = require('./routes/serviceRoutes');
 const { protect } = require('./middleware/authMiddleware');
 const cookieParser = require('cookie-parser');
 
@@ -14,6 +15,7 @@ app.set('views', __dirname + '/views');
 
 // Use authentication routes
 app.use(authRoutes);
+app.use(serviceRoutes);
 
 // Render register and login views
 app.get('/register', (req, res) => {
